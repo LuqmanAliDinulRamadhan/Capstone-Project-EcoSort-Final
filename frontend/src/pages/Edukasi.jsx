@@ -12,7 +12,7 @@ const Edukasi = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/stats');
+        const response = await axios.get('https://capstone-project-ecosort.vercel.app/api/stats');
         setStats(response.data);
       } catch (error) {
         console.error('Gagal mengambil data statistik:', error);

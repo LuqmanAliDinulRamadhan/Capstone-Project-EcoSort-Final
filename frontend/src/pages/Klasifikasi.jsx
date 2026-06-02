@@ -48,8 +48,8 @@ const Klasifikasi = () => {
     formData.append('image', image);
 
     try {
-      // Tembak ke API Express yang lagi jalan di port 5000
-      const response = await axios.post('http://localhost:5000/api/classify', formData, {
+      // Tembak ke API Express di Vercel
+      const response = await axios.post('https://capstone-project-ecosort.vercel.app/api/classify', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
