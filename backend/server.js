@@ -83,7 +83,7 @@ app.post('/api/classify', upload.single('image'), async (req, res) => {
         ]
       }`;
 
-      if (process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== 'masukkan_api_key_gemini_lo_disini_nanti') {
+      if (process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== 'dummy-key')  {
          // Kirim teks prompt sekaligus file gambar ke Gemini
          const response = await ai.models.generateContent({
              model: 'gemini-2.5-flash',
@@ -152,10 +152,6 @@ app.post('/api/classify', upload.single('image'), async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server Backend EcoSort jalan di http://localhost:${PORT}`);
-});
-
 // ENDPOINT STATISTIK UNTUK HALAMAN EDUKASI 
 app.get('/api/stats', async (req, res) => {
   try {
@@ -176,3 +172,9 @@ app.get('/api/stats', async (req, res) => {
     res.status(500).json({ message: 'Error mengambil data statistik' });
   }
 });
+
+app.listen(PORT, () => {
+  console.log(`Server Backend EcoSort jalan di http://localhost:${PORT}`);
+});
+
+module.exports = app;
